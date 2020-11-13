@@ -51,7 +51,7 @@ app.use(config.prefix, (req, res, next) => {
 
     req.url = config.prefix + req.url.slice(1);
 
-    if (config.cookie_auth) {
+    if (config.cookie_auth && !config.cookie_auth == false) {
 
         if (req.headers['cookie'] && req.headers['cookie'].match(config.cookie_auth)) return Unblocker.app(req, res, next);
     
@@ -108,7 +108,7 @@ app.post(`/session/`, async(req, res, next) => {
 
         if (req.body.url.startsWith('//')) { req.body.url = 'http:' + req.body.url; } else if (req.body.url.startsWith('https://') || req.body.url.startsWith('http://')) { req.body.url = req.body.url } else { req.body.url = 'http://' + req.body.url};
 
-        if (config.cookie_auth) {
+        if (config.cookie_auth && !config.cookie_auth == false) {
 
             res.set('Set-Cookie', config.cookie_auth + `; path=${config.prefix};`);
 
