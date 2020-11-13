@@ -3,7 +3,7 @@ An easy Alloy instance to deploy to Heroku, any online IDE, or hosting it yourse
 
 # How to use:
 
-1. `git clone https://github.com/titaniumnetwork-dev/alloyproxy/tree/alloy-server.git`
+1. `git clone https://github.com/titaniumnetwork-dev/alloyproxy.org.git`
 
 2. cd `alloy-server`
 
