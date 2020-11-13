@@ -3,6 +3,8 @@ An easy Alloy instance to deploy to Heroku, any online IDE, or hosting it yourse
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/titaniumnetwork-dev/alloyproxy.org)
 
+<a href="https://repl.it/github/titaniumnetwork-dev/alloyproxy.org" title="Run on Repl.it"><img alt="Run on Repl.it" src="https://avatars1.githubusercontent.com/u/47227492?s=200&v=4" width="140" height="30"><img></a>
+
 # How to use:
 
 1. `git clone https://github.com/titaniumnetwork-dev/alloyproxy.org.git`
