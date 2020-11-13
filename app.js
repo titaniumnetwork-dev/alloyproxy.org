@@ -47,22 +47,6 @@ const Unblocker = new Alloy({
  
 // The main part of the proxy. 
 
-app.use(config.prefix, (req, res, next) => {
-
-    req.url = config.prefix + req.url.slice(1);
-
-    if (config.cookie_auth && !config.cookie_auth == false) {
-
-        if (req.headers['cookie'] && req.headers['cookie'].match(config.cookie_auth)) return Unblocker.app(req, res, next);
-    
-        res.send(fs.readFileSync('./error.html', { encoding: 'utf8' }).replace('%ERR%', 'Authorization required'));
-
-        res.statusCode = 400;
-
-    } else Unblocker.app(req, res, next);
-    
-});
-
 app.get(config.prefix, (req, res, next) => {
 
     if (req.query.url) {
@@ -77,6 +61,22 @@ app.get(config.prefix, (req, res, next) => {
 
     } else return next();
 
+});
+
+app.use(config.prefix, (req, res, next) => {
+
+    req.url = config.prefix + req.url.slice(1);
+
+    if (config.cookie_auth && !config.cookie_auth == false) {
+
+        if (req.headers['cookie'] && req.headers['cookie'].match(config.cookie_auth)) return Unblocker.app(req, res, next);
+    
+        res.send(fs.readFileSync('./error.html', { encoding: 'utf8' }).replace('%ERR%', 'Authorization required'));
+
+        res.statusCode = 400;
+
+    } else Unblocker.app(req, res, next);
+    
 });
 
 app.post(`/session/`, async(req, res, next) => {
