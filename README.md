@@ -1,6 +1,8 @@
 # alloyproxy.org
 An easy Alloy instance to deploy to Heroku, any online IDE, or hosting it yourself.
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/titaniumnetwork-dev/alloyproxy.org)
+
 # How to use:
 
 1. `git clone https://github.com/titaniumnetwork-dev/alloyproxy.org.git`
