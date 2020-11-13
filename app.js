@@ -129,4 +129,4 @@ app.use('/', express.static('public'));
 
 Unblocker.ws(server);    
 
-server.listen(config.port, () => console.log(`Running on ${protocol}0.0.0.0:${config.port}`));
+server.listen(process.env.PORT || config.port, () => console.log(`Running on ${protocol}0.0.0.0:${config.port}`));
