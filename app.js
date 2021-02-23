@@ -54,7 +54,13 @@ app.get(config.prefix, (req, res, next) => {
         var url = atob(req.query.url);
 
         if (url.startsWith('//')) url = 'http:' + url;
-
+	
+	if (!url.includes('.')) {
+		url.replace(' ', '+');
+		url = `https://google.com/search?q=${url}`;
+		return res.redirect(config.prefix + rewrite.url(url));
+	}
+	    
         if (url.startsWith('https://') || url.startsWith('http://')) { return res.redirect(config.prefix + rewrite.url(url)) }
 
         else return res.redirect(config.prefix + rewrite.url('http://' + url))
@@ -107,7 +113,7 @@ app.post(`/session/`, async(req, res, next) => {
     if (req.body.url) {
 
         if (req.body.url.startsWith('//')) { req.body.url = 'http:' + req.body.url; } else if (req.body.url.startsWith('https://') || req.body.url.startsWith('http://')) { req.body.url = req.body.url } else { req.body.url = 'http://' + req.body.url};
-
+	
         if (config.cookie_auth && !config.cookie_auth == false) {
 
             res.set('Set-Cookie', config.cookie_auth + `; path=${config.prefix};`);
